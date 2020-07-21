@@ -1,19 +1,22 @@
-// get local stream
-navigator.mediaDevices
-  .getUserMedia(constraints)
-    .then(stream => {
-      localStream = stream
-    })
-    .catch(error => {
-      // error handling
-    })
-const updateVideoEnabled = (enabled) => {
-  if (localStream) {
-    localStream.getVideoTracks()[0].enabled = enabled
-  }
-}
-const updateAudioEnabled = (enabled) => {
-  if (localStream) {
-    localStream.getAudioTracks()[0].enabled = enabled
-  }
-}
+(async function() {
+  // ..
+
+  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+  const call = peer.call('remote-peerId', stream);
+
+  // ...
+}());
+(async function() {
+  // ..
+
+  const stream = await navigator.mediaDevices.getUserMedia({
+    video: true,
+    audio: true,
+  });
+  const call = peer.call('remote-peerId', stream);
+
+  // 音声のみミュート
+  stream.getAudioTracks().forEach(track => track.enabled = false);
+
+  // ...
+}());
