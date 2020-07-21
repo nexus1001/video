@@ -1,11 +1,10 @@
- function onClick() {
-  // ..
-  const kyouyu = document.getElementById("kyouyu")
-  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-  const call = peer.call('remote-peerId', stream);
+document.getElementById("kyouyu").onclick = function() {
+   const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+   const call = peer.call('remote-peerId', stream);
 
   // ...
-}());
+}; 
+
 (async function() {
   // ..
 
