@@ -1,6 +1,6 @@
-(async function() {
+ function onClickSend() {
   // ..
-
+  const kyouyu = document.getElementById("kyouyu")
   const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
   const call = peer.call('remote-peerId', stream);
 
