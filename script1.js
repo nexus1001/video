@@ -1,6 +1,6 @@
 document.getElementById("kyouyu").onclick = function() {
-   const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-   const call = peer.call('remote-peerId', stream);
+   const stream = navigator.mediaDevices.getDisplayMedia({ video: true });
+   const call = peer.call('e5440a0d-d51b-4519-a1b7-40cf0e222f4b', stream);
 
   // ...
 }; 
