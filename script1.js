@@ -1,4 +1,4 @@
- function onClickSend() {
+ function onClick() {
   // ..
   const kyouyu = document.getElementById("kyouyu")
   const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
