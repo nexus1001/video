@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/colorjoe@4.1.1/css/colorjoe.min.css"
+    />    <!-- colorjoeのcssをダウンロード-->
+
+  </head>
+  <body>
+    <h1>お絵かきしよう</h1>
+    <div id="all-container">
+      <span id="layerd-canvas-area">
+        <canvas
+          id="draw-area"
+          width="600px"
+          height="600px"
+          style="border: 1px solid #000000; position: absolute;"
+        ></canvas>
+        <canvas
+          id="line-width-indicator"
+          width="600px"
+          height="600px"
+          style="border: 1px solid #000000;"
+        ></canvas>
+      </span>
+      <div id="right">
+        <div>
+          <div>
+            <button id="clear-button" class="menu">全消し</button>
+          </div>
+          <div>
+            <button id="eraser-button" class="menu">消しゴムモード</button>
+          </div>
+          <div>
+            文字の太さ
+            <span id="line-width">5</span>
+          </div>
+          <input
+            id="range-selector"
+            type="range"
+            value="5"
+            min="1"
+            max="50"
+            step="0.1"
+          />
+
+          <input
+            id="line-width-number-field"
+            type="number"
+            value="5"
+            min="1"
+            max="50"
+            step="0.1"
+          />
+        </div>
+        <div>
+          <span id="color-palette"></span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" id="download" download="canvas.jpg">
+      お絵かきをダウンロード
+    </a>
+    <style>
+      #all-container {
+        display: flex;
+        flex-direction: row;
+      }
+      #right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .menu {
+        margin-bottom: 20px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/colorjoe@4/dist/colorjoe.min.js"></script>
+    <script src="oekaki.js"></script>
+  </body>
+</html>
