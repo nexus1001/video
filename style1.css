@@ -2,13 +2,13 @@ body {
   background-image: url("sky.jpg");
   background-size: cover;
 }
-h1 {
+.start h1 {
   text-align: center;
   font-size: 80pt;
   color: #FFFFFF;
 
 }
-a {
+.start {
   text-align: center;
   font-size: 80pt;
 }
