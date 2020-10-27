@@ -1,82 +1,5 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
-  <title>RTC</title>
-</head>
-<body>
- <button id="share">画面共有</button>
- <button id="camera">カメラ共有</button>
- <button id="stop">共有停止</button>
- <p id="my-id"></p>
- <textarea id="their-id"></textarea>
- <button id="make-call">発信</button>
- <video id="my-video" width="400px" autoplay muted playsinline controls></video>
- <video id="their-video" width="720px" autoplay muted playsinline controls></video>
-
-<script>
-  let localStream;//グローバル変数として用意
-
-const peer = new Peer({
-    key: 'e5440a0d-d51b-4519-a1b7-40cf0e222f4b',
-    debug: 1
-  };)
-peer.on('open', () => {
-    document.getElementById('my-id').textContent = peer.id;
-};)//ここでpeerID取得
-
-document.getElementById('share').onclick = () =>
-  {navigator.mediaDevices.getDisplayMedia({video:{width: 1280,height:720,frameRate:60}, audio: false})
-    .then( stream => {
-    const videoElm = document.getElementById('my-video')
-    videoElm.srcObject = stream;
-    videoElm.play();
-    localStream = stream;//映像をグローバル変数に
-const theirID = document.getElementById('their-id').value;
-const mediaConnection = peer.call(theirID, localStream,{videoBandwidth: 14000});
-  });}
-
-document.getElementById('camera').onclick = () =>
-  {navigator.mediaDevices.getUserMedia({video:{width: 1280,height:720,frameRate:60}, audio: false})//set video quality 
-    .then( stream => {
-    const videoElm = document.getElementById('my-video')
-    videoElm.srcObject = stream;
-    videoElm.play();
-    localStream = stream;
-const theirID = document.getElementById('their-id').value;
-const mediaConnection = peer.call(theirID, localStream,{videoBandwidth: 14000});
-  });}
-
-document.getElementById('stop').onclick = () =>{
-localStream.getVideoTracks()[0].stop();
-}
-  
-document.getElementById('make-call').onclick = () => {
-  const theirID = document.getElementById('their-id').value;
-  const mediaConnection = peer.call(theirID, localStream,{videoBandwidth: 14000});//request bandwidth
-  setEventListener(mediaConnection);
-}
-
-const setEventListener = mediaConnection => {
-  mediaConnection.on('stream', stream => {
-    const videoElm = document.getElementById('their-video')
-    videoElm.srcObject = stream;
-    videoElm.play();
-  });
-}
-
-peer.on('call', mediaConnection => {
-  mediaConnection.answer(localStream,{videoBandwidth: 14000});
-  setEventListener(mediaConnection);
-};)
-
-</script>
-</body>
-</html>
-<!--<!DOCTYPE html>
-<html lang="ja">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
@@ -115,4 +38,4 @@ peer.on('call', mediaConnection => {
     <script src="./script.js"></script>
     <script src="./script1.js"></script>
   </body>
-</html>-->
+</html>
