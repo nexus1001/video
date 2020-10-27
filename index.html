@@ -1,42 +1,27 @@
 <!DOCTYPE html>
-<html lang="ja">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=360,initial-scale=1"
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>みんなの部屋</title>
-    <link rel="stylesheet" href="../_shared/style.css">
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="heading">みんなの部屋</h1>
-      <p class="note">
-        Change Room mode (before join in a room):
-        <a href="#">少人数</a> / <a href="#sfu">大人数</a>
-      </p>
-      <div class="room">
-        <div>
-          <video id="js-local-stream"></video>
-          <span id="js-room-mode"></span>:
-          <input type="text" placeholder="部屋の名前" id="js-room-id">
-          <button id="js-join-trigger">参加</button>
-          <button id="js-leave-trigger">退会</button>
-        </div>
-      
-        <div class="remote-streams" id="js-remote-streams"></div>
+<head>
+    <title>SkyWay</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script src="../dist/screenshare.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
 
-        <div>
-          <pre class="messages" id="js-messages"></pre>
-          <input type="text" id="js-local-text">
-          <button id="js-send-trigger">メッセージ</button>
-        </div>
-        <div>
-          <video autoplay playsinline></video>
-          <script src="display.js"></script>
-        </div>
-      </div>
-      <p class="meta" id="js-meta"></p>
-        <!-- Steps -->
+<body>
+
+<div class="pure-g">
+
+    <!-- Video area -->
+    <div class="pure-u-2-3" id="video-container">
+        <p>Peer Video</p>
+        <video id="their-video" autoplay></video>
+        <p>My Video</p>
+        <video id="my-video" muted="true" width="480" height="240" autoplay></video>
+    </div>
+
+    <!-- Steps -->
     <div class="pure-u-1-3" id="control">
         <h2>SkyWay Screen Share Demo</h2>
         <label>Media source selection:</label>
@@ -75,10 +60,52 @@
         </div>
     </div>
 
+</div>
+
+</body>
+</html>
+<!--<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=360,initial-scale=1"
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>みんなの部屋</title>
+    <link rel="stylesheet" href="../_shared/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="heading">みんなの部屋</h1>
+      <p class="note">
+        Change Room mode (before join in a room):
+        <a href="#">少人数</a> / <a href="#sfu">大人数</a>
+      </p>
+      <div class="room">
+        <div>
+          <video id="js-local-stream"></video>
+          <span id="js-room-mode"></span>:
+          <input type="text" placeholder="部屋の名前" id="js-room-id">
+          <button id="js-join-trigger">参加</button>
+          <button id="js-leave-trigger">退会</button>
+        </div>
+      
+        <div class="remote-streams" id="js-remote-streams"></div>
+
+        <div>
+          <pre class="messages" id="js-messages"></pre>
+          <input type="text" id="js-local-text">
+          <button id="js-send-trigger">メッセージ</button>
+        </div>
+        <div>
+          <video autoplay playsinline></video>
+          <script src="display.js"></script>
+        </div>
+      </div>
+      <p class="meta" id="js-meta"></p>
     </div>
     <script src="//cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script src="../_shared/key.js"></script>
     <script src="./script.js"></script>
     <script src="./script1.js"></script>
   </body>
-</html>
+</html>-->
