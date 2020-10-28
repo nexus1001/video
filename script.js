@@ -2,6 +2,7 @@ const Peer = window.Peer;
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
+  localVideo = document.getElementById('js-local-stream');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
   const remoteVideos = document.getElementById('js-remote-streams');
@@ -36,7 +37,7 @@ const Peer = window.Peer;
   // 音声のみミュート
   localStream.getAudioTracks().forEach((track) => (track.enabled = false));
   // カメラオフ
-  localStream.getTracks().forEach((track) => (track.enabled = false));
+  localStream.getVideoTracks().forEach((track) => (track.enabled = false));
 
   // Render local stream
   localVideo.muted = true;
