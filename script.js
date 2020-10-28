@@ -33,6 +33,10 @@ const Peer = window.Peer;
       video: true,
     })
     .catch(console.error);
+  // 音声のみミュート
+  localStream.getAudioTracks().forEach((track) => (track.enabled = false));
+  // カメラオフ
+  localStream.getTracks().forEach((track) => (track.enabled = false));
 
   // Render local stream
   localVideo.muted = true;
