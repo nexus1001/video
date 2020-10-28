@@ -2,7 +2,8 @@ const Peer = window.Peer;
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
-  localVideo = document.getElementById('js-local-stream');
+  const VideoTrigger = document.getElementById('js-videoleave-trigger');
+  const AudioTrigger = document.getElementById('js-audioleave-trigger');
   const joinTrigger = document.getElementById('js-join-trigger');
   const leaveTrigger = document.getElementById('js-leave-trigger');
   const remoteVideos = document.getElementById('js-remote-streams');
@@ -35,9 +36,9 @@ const Peer = window.Peer;
     })
     .catch(console.error);
   // 音声のみミュート
-  localStream.getAudioTracks().forEach((track) => (track.enabled = false));
+  AudioTrigger.addEventListener('click', () =>  localStream.getAudioTracks().forEach((track) => (track.enabled = false));
   // カメラオフ
-  localStream.getVideoTracks().forEach((track) => (track.enabled = false));
+  VideoTrigger.addEventListener('click', () => localStream.getVideoTracks().forEach((track) => (track.enabled = false));
 
   // Render local stream
   localVideo.muted = true;
