@@ -25,7 +25,8 @@ const Peer = window.Peer;
     'hashchange',
     () => (roomMode.textContent = getRoomModeByHash())
   );
-
+//getUserMedia ユーザーの許可に基づいて、システム上のカメラや画面共有機能、マイクを起動して、入力と共にビデオトラックや
+//  オーディオトラックを含む MediaStream を提供します。
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
