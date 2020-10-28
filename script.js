@@ -44,7 +44,7 @@ const Peer = window.Peer;
       video: false
   }).then(stream => videoElement.srcObject = stream)
     .catch(err => log(err.name + ": " + err.message));
-}, ture)
+}, false)
   //videoTrigger.addEventListener('click', () => localStream.getVideoTracks().forEach((track) => (track.enabled = false));
 
   // Render local stream
