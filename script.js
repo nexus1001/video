@@ -34,8 +34,8 @@ const Peer = window.Peer;
       audio: true,
    //   audio: false,
       video: {
-        width: 280,
-        height: 250
+        width: 240,
+        height: 200
       }
     //  video: false,
     })
