@@ -32,19 +32,20 @@ const Peer = window.Peer;
   const localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
-      video: true,
+    //  video: true,
+      video: false,
     })
     .catch(console.error);
   // 音声のみミュート
   
   //audioTrigger.addEventListener('click', () =>  localStream.getAudioTracks().forEach((track) => (track.enabled = false));
   // カメラオフ
-  document.getElementById("js-videoleave-trigger").addEventListener("click", function() {
+/*  document.getElementById("js-videoleave-trigger").addEventListener("click", function() {
   navigator.mediaDevices.getUserMedia({
       video: false
   }).then(stream => videoElement.srcObject = stream)
     .catch(err => log(err.name + ": " + err.message));
-}, false)
+}, false)*/
   //videoTrigger.addEventListener('click', () => localStream.getVideoTracks().forEach((track) => (track.enabled = false));
 
   // Render local stream
