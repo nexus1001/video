@@ -33,7 +33,10 @@ const Peer = window.Peer;
     .getUserMedia({
       audio: true,
    //   audio: false,
-      video: true,
+      video: {
+        width: 400,
+        height: 300
+      }
     //  video: false,
     })
     .catch(console.error);
