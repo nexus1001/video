@@ -31,8 +31,8 @@ const Peer = window.Peer;
 //  オーディオトラックを含む MediaStream を提供します。
   const localStream = await navigator.mediaDevices
     .getUserMedia({
-   //   audio: true,
-      audio: false,
+      audio: true,
+   //   audio: false,
       video: true,
     //  video: false,
     })
