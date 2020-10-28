@@ -2,6 +2,10 @@ const Peer = window.Peer;
 
 (async function main() {
   const localVideo = document.getElementById('js-local-stream');
+  const toggleCamera = document.getElementById('js-toggle-camera');
+  const toggleMicrophone = document.getElementById('js-toggle-microphone');
+  const cameraStatus = document.getElementById('camera-status');
+  const microphoneStatus = document.getElementById('microphone-status');
  // const videoTrigger = document.getElementById('js-videoleave-trigger');
  // const audioTrigger = document.getElementById('js-audioleave-trigger');
   const joinTrigger = document.getElementById('js-join-trigger');
@@ -14,7 +18,7 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-
+ // var media = ;
   meta.innerText = `
     UA: ${navigator.userAgent}
     SDK: ${sdkSrc ? sdkSrc.src : 'unknown'}
@@ -41,7 +45,17 @@ const Peer = window.Peer;
     })
     .catch(console.error);
   // 音声のみミュート
-  
+  toggleCamera.addEventListener('click', () => {
+  const videoTracks = localStream.getVideoTracks()[0];
+  videoTracks.enabled = !videoTracks.enabled;
+  cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
+});
+
+toggleMicrophone.addEventListener('click', () => {
+  const audioTracks = localStream.getAudioTracks()[0];
+  audioTracks.enabled = !audioTracks.enabled;
+  microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
+});
   //audioTrigger.addEventListener('click', () =>  localStream.getAudioTracks().forEach((track) => (track.enabled = false));
   // カメラオフ
 /*  document.getElementById("js-videoleave-trigger").addEventListener("click", function() {
@@ -133,6 +147,24 @@ const Peer = window.Peer;
       messages.textContent += `${peer.id}: ${localText.value}\n`;
       localText.value = '';
     }
+    /*function fadein()
+{
+  var vl = media.volume;
+  if (vl < 1.0)
+  {
+    media.volume = Math.ceil((vl+0.1)*10)/10;
+    setTimeout("fadein()",200);
+  }
+}
+    function fadeout()
+{
+  var vl = media.volume;
+  if (vl > 0)
+  {
+    media.volume = Math.floor((vl-0.1)*10)/10;
+    setTimeout("fadeout()",200);
+  }
+}*/
   });
 
   peer.on('error', console.error);
