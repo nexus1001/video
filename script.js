@@ -50,7 +50,17 @@ const Peer = window.Peer;
   videoTracks.enabled = !videoTracks.enabled;
   cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
+  var promise = navigator.mediaDevices.getDisplayMedia(constraints);
+async function startCapture(displayMediaOptions) {
+  let captureStream = null;
 
+  try {
+    captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
+  } catch(err) {
+    console.error("Error: " + err);
+  }
+  return captureStream;
+}
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
