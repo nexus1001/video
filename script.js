@@ -44,7 +44,7 @@ const Peer = window.Peer;
     //  video: false,
     })
     .catch(console.error);
-  // 音声のみミュート
+  // カメラオフ・音声のミュート
   toggleCamera.addEventListener('click', () => {
   const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
