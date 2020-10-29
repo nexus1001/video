@@ -107,8 +107,8 @@ toggleMicrophone.addEventListener('click', () => {
     room.once('open', () => {
       messages.textContent += '=== You joined ===\n';
     });
-    room.on('peerJoin', peerId => {
-      messages.textContent += `=== ${peerId} joined ===\n`;
+    room.on('peerJoin', name => {
+      messages.textContent += `=== ${name} joined ===\n`;
     });
 
     // Render remote stream for new peer join in the room
@@ -117,7 +117,7 @@ toggleMicrophone.addEventListener('click', () => {
       newVideo.srcObject = stream;
       newVideo.playsInline = true;
       // mark peerId to find it later at peerLeave event
-      newVideo.setAttribute('data-peer-id', stream.peerId);
+      newVideo.setAttribute('data-peer-id', stream.name);
       remoteVideos.append(newVideo);
       await newVideo.play().catch(console.error);
     });
@@ -128,15 +128,15 @@ toggleMicrophone.addEventListener('click', () => {
     });
 
     // for closing room members
-    room.on('peerLeave', peerId => {
+    room.on('peerLeave', name => {
       const remoteVideo = remoteVideos.querySelector(
-        `[data-peer-id=${peerId}]`
+        `[data-peer-id=${name}]`
       );
       remoteVideo.srcObject.getTracks().forEach(track => track.stop());
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      messages.textContent += `=== ${peerId} left ===\n`;
+      messages.textContent += `=== ${name} left ===\n`;
     });
 
     // for closing myself
