@@ -18,6 +18,7 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
+  
  // var media = ;
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -50,6 +51,8 @@ const Peer = window.Peer;
   videoTracks.enabled = !videoTracks.enabled;
   cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
+  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+  const call = peer.call('remote-peerId', stream);
  /* var promise = navigator.mediaDevices.getDisplayMedia(constraints);
 async function startCapture(displayMediaOptions) {
   let captureStream = null;
