@@ -51,8 +51,8 @@ const Peer = window.Peer;
   videoTracks.enabled = !videoTracks.enabled;
   cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
-  const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-  const call = peer.call('remote-peerId', stream);
+ // const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+//  const call = peer.call('remote-peerId', stream);
  /* var promise = navigator.mediaDevices.getDisplayMedia(constraints);
 async function startCapture(displayMediaOptions) {
   let captureStream = null;
