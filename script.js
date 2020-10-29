@@ -157,7 +157,7 @@ toggleMicrophone.addEventListener('click', () => {
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      messages.textContent += `${}: ${localText.value}\n`;
+      messages.textContent += `${name}: ${localText.value}\n`;
       localText.value = '';
     }
     /*function fadein()
