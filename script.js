@@ -53,7 +53,7 @@ const Peer = window.Peer;
 });
  // const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
 //  const call = peer.call('remote-peerId', stream);
- /* var promise = navigator.mediaDevices.getDisplayMedia(constraints);
+  var promise = navigator.mediaDevices.getDisplayMedia(constraints);
 async function startCapture(displayMediaOptions) {
   let captureStream = null;
 
@@ -63,7 +63,7 @@ async function startCapture(displayMediaOptions) {
     console.error("Error: " + err);
   }
   return captureStream;
-}*/
+}
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
