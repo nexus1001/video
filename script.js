@@ -6,7 +6,7 @@ const Peer = window.Peer;
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const cameraStatus = document.getElementById('camera-status');
   const microphoneStatus = document.getElementById('microphone-status');
- // const toggleMediaStream = document.getElementById('js-toggle-mediastream');
+  const toggleMediaStream = document.getElementById('js-toggle-mediastream');
  // const videoTrigger = document.getElementById('js-videoleave-trigger');
  // const audioTrigger = document.getElementById('js-audioleave-trigger');
   const joinTrigger = document.getElementById('js-join-trigger');
@@ -58,7 +58,7 @@ toggleMicrophone.addEventListener('click', () => {
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
-/*toggleMediaStream.addEventListener('click', () => {
+toggleMediaStream.addEventListener('click', () => {
   //"user strict";
   const mediaStreamConstraints = {
   video: true
@@ -79,7 +79,7 @@ navigator.mediaDevices
   .getDisplayMedia(mediaStreamConstraints)
   .then(gotLocalMediaStream)
   .catch(handleLocalMediaStreamError);
-});*/
+});
 
   // Render local stream
   localVideo.muted = true;
