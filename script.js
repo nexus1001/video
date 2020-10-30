@@ -58,7 +58,7 @@ toggleMicrophone.addEventListener('click', () => {
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
-/*toggleMediaStream.addEventListener('click', () => {
+toggleMediaStream.addEventListener('click', () => {
   "user strict";
   const mediaStreamConstraints = {
   video: true
@@ -79,12 +79,13 @@ navigator.mediaDevices
   .getDisplayMedia(mediaStreamConstraints)
   .then(gotLocalMediaStream)
   .catch(handleLocalMediaStreamError);
+});
+
   // Render local stream
   localVideo.muted = true;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
-});*/
 
   // eslint-disable-next-line require-atomic-updates
   const peer = (window.peer = new Peer({
