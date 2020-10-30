@@ -63,7 +63,7 @@ toggleMediaStream.addEventListener('click', () => {
   video: true
 };
 
-const localVideo = document.querySelector("video");
+const localVideo = document.querySelector("js-local-mediastream");
 
 function gotLocalMediaStream(mediaStream) {
   const localStream = mediaStream;
