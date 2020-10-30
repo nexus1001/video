@@ -1,7 +1,7 @@
 const Peer = window.Peer;
 
 (async function main() {
-  const localVideo = document.getElementById('js-local-stream');
+  var localVideo = document.getElementById('js-local-stream');
   const toggleCamera = document.getElementById('js-toggle-camera');
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const cameraStatus = document.getElementById('camera-status');
@@ -64,11 +64,11 @@ toggleMediaStream.addEventListener('click', () => {
   video: true
 };
 
-const localVideo1 = document.querySelector("js-local-mediastream");
+localVideo = document.querySelector("js-local-mediastream");
 
 function gotLocalMediaStream(mediaStream) {
   const localStream = mediaStream;
-  localVideo1.srcObject = mediaStream;
+  localVideo.srcObject = mediaStream;
 }
 
 function handleLocalMediaStreamError(error) {
