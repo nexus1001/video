@@ -61,6 +61,7 @@ toggleMicrophone.addEventListener('click', () => {
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
   const mediaStreamConstraints = {
+  audio: true,
   video: true
 };
 
