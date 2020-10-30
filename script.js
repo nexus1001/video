@@ -78,7 +78,7 @@ toggleMicrophone.addEventListener('click', () => {
     .catch(err => log(err.name + ": " + err.message));
 }, false)*/
   //videoTrigger.addEventListener('click', () => localStream.getVideoTracks().forEach((track) => (track.enabled = false));
-　const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+　//const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
   // Render local stream
   localVideo.muted = true;
   localVideo.srcObject = localStream;
