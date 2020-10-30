@@ -35,7 +35,7 @@ const Peer = window.Peer;
   );
 //getUserMedia ユーザーの許可に基づいて、システム上のカメラや画面共有機能、マイクを起動して、入力と共にビデオトラックや
 //  オーディオトラックを含む MediaStream を提供します。
-  const localStream = await navigator.mediaDevices
+  var localStream = await navigator.mediaDevices
     .getUserMedia({
       audio: true,
    //   audio: false,
@@ -67,7 +67,7 @@ toggleMediaStream.addEventListener('click', () => {
 localVideo = document.querySelector("js-local-mediastream");
 
 function gotLocalMediaStream(mediaStream) {
-  const localStream = mediaStream;
+  localStream = mediaStream;
   localVideo.srcObject = mediaStream;
 }
 
@@ -115,7 +115,7 @@ navigator.mediaDevices
 
     // Render remote stream for new peer join in the room
     room.on('stream', async stream => {
-      const newVideo = document.createElement('video');
+      const newVideo = document.createElement('js-local-mediastream');
       newVideo.srcObject = stream;
       newVideo.playsInline = true;
       // mark peerId to find it later at peerLeave event
