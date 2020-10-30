@@ -59,6 +59,7 @@ toggleMicrophone.addEventListener('click', () => {
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
 toggleMediaStream.addEventListener('click', () => {
+  "user strict";
   const mediaStreamConstraints = {
   video: true
 };
