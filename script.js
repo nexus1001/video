@@ -6,6 +6,7 @@ const Peer = window.Peer;
   const toggleMicrophone = document.getElementById('js-toggle-microphone');
   const cameraStatus = document.getElementById('camera-status');
   const microphoneStatus = document.getElementById('microphone-status');
+  const toggleMediaStream = document.getElementById('js-toggle-mediastream');
  // const videoTrigger = document.getElementById('js-videoleave-trigger');
  // const audioTrigger = document.getElementById('js-audioleave-trigger');
   const joinTrigger = document.getElementById('js-join-trigger');
@@ -51,39 +52,38 @@ const Peer = window.Peer;
   videoTracks.enabled = !videoTracks.enabled;
   cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
- // const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
-//  const call = peer.call('remote-peerId', stream);
-  /*var promise = navigator.mediaDevices.getDisplayMedia(constraints);
-async function startCapture(displayMediaOptions) {
-  let captureStream = null;
-
-  try {
-    captureStream = await navigator.mediaDevices.getDisplayMedia(displayMediaOptions);
-  } catch(err) {
-    console.error("Error: " + err);
-  }
-  return captureStream;
-}*/
+ 
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
-  //audioTrigger.addEventListener('click', () =>  localStream.getAudioTracks().forEach((track) => (track.enabled = false));
-  // カメラオフ
-/*  document.getElementById("js-videoleave-trigger").addEventListener("click", function() {
-  navigator.mediaDevices.getUserMedia({
-      video: false
-  }).then(stream => videoElement.srcObject = stream)
-    .catch(err => log(err.name + ": " + err.message));
-}, false)*/
-  //videoTrigger.addEventListener('click', () => localStream.getVideoTracks().forEach((track) => (track.enabled = false));
-　//const stream = await navigator.mediaDevices.getDisplayMedia({ video: true });
+toggleMediaStream.addEventListener('click', () => {
+  const mediaStreamConstraints = {
+  video: true
+};
+
+const localVideo = document.querySelector("video");
+
+function gotLocalMediaStream(mediaStream) {
+  const localStream = mediaStream;
+  localVideo.srcObject = mediaStream;
+}
+
+function handleLocalMediaStreamError(error) {
+  console.log("navigator.getUserMedia error: ", error);
+}
+
+navigator.mediaDevices
+  .getDisplayMedia(mediaStreamConstraints)
+  .then(gotLocalMediaStream)
+  .catch(handleLocalMediaStreamError);
   // Render local stream
   localVideo.muted = true;
   localVideo.srcObject = localStream;
   localVideo.playsInline = true;
   await localVideo.play().catch(console.error);
+});
 
   // eslint-disable-next-line require-atomic-updates
   const peer = (window.peer = new Peer({
@@ -160,24 +160,7 @@ toggleMicrophone.addEventListener('click', () => {
       messages.textContent += `${peerId}: ${localText.value}\n`;
       localText.value = '';
     }
-    /*function fadein()
-{
-  var vl = media.volume;
-  if (vl < 1.0)
-  {
-    media.volume = Math.ceil((vl+0.1)*10)/10;
-    setTimeout("fadein()",200);
-  }
-}
-    function fadeout()
-{
-  var vl = media.volume;
-  if (vl > 0)
-  {
-    media.volume = Math.floor((vl-0.1)*10)/10;
-    setTimeout("fadeout()",200);
-  }
-}*/
+    
   });
 
   peer.on('error', console.error);
