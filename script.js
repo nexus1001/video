@@ -115,7 +115,7 @@ navigator.mediaDevices
 
     // Render remote stream for new peer join in the room
     room.on('stream', async stream => {
-      const newVideo = document.createElement('js-local-mediastream');
+      const newVideo = document.createElement('js-local-stream');
       newVideo.srcObject = stream;
       newVideo.playsInline = true;
       // mark peerId to find it later at peerLeave event
