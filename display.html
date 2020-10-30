@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>みんなの部屋</title>
+    <title>画面共有</title>
     <link rel="stylesheet" href="../_shared/style.css">
   </head>
   <body>
     <div class="container">
-      <h1 class="heading">みんなの部屋</h1>
+      <h1 class="heading">画面共有</h1>
       <p class="note">
         Change Room mode (before join in a room):
         <a href="#">少人数</a> / <a href="#sfu">大人数</a>
@@ -19,6 +19,7 @@
           <div hidden class="remote-streams" id="js-remote-streams"></div>
           <!--<video autoplay playsinline id="js-local-mediastream"></video>-->
           <video hidden id="js-local-stream"></video>
+          <p>部屋の名前を入力する前に画面共有をしてください</p>
           <span id="js-room-mode"></span>:
           <input type="text" placeholder="部屋の名前" id="js-room-id">
           <!-- triggerメソッドを使って任意のタイミングでイベントを実行する -->
