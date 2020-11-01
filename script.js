@@ -59,7 +59,7 @@ toggleMicrophone.addEventListener('click', () => {
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
-toggleMediaStream.addEventListener('click', () => {
+toggleNameId.addEventListener('click', () => {
   var nameId = document.getElementById('js-nameId-text');
 });
 toggleMediaStream.addEventListener('click', () => {
