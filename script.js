@@ -115,7 +115,7 @@ navigator.mediaDevices
       messages.textContent += '=== You joined ===\n';
     });
     room.on('peerJoin', peerId => {
-      messages.textContent += `=== ${nameId} joined ===\n`;
+      messages.textContent += nameId +`=== joined ===\n`;
     });
 
     // Render remote stream for new peer join in the room
@@ -143,7 +143,7 @@ navigator.mediaDevices
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      messages.textContent += `=== ${nameId} left ===\n`;
+      messages.textContent += nameId +`=== left ===\n`;
     });
 
     // for closing myself
@@ -164,7 +164,7 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      messages.textContent += `${nameId}: ${localText.value}\n`;
+      messages.textContent += nameId +`: ${localText.value}\n`;
       localText.value = '';
     }
     
