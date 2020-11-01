@@ -16,6 +16,7 @@ const Peer = window.Peer;
   const roomMode = document.getElementById('js-room-mode');
   const localText = document.getElementById('js-local-text');
   const sendTrigger = document.getElementById('js-send-trigger');
+  const toggleNameId = document.getElementById('js-toggle-nameId');
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
@@ -57,6 +58,9 @@ toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
+});
+toggleMediaStream.addEventListener('click', () => {
+  var nameId = document.getElementById('js-nameId-text');
 });
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
@@ -160,7 +164,7 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      messages.textContent += `${peerId}: ${localText.value}\n`;
+      messages.textContent += `${nameId}: ${localText.value}\n`;
       localText.value = '';
     }
     
