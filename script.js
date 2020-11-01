@@ -20,7 +20,7 @@ const Peer = window.Peer;
   const messages = document.getElementById('js-messages');
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
-  var nameId ='aaa';
+  
  // var media = ;
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -60,7 +60,7 @@ toggleMicrophone.addEventListener('click', () => {
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
 toggleNameId.addEventListener('click', () => {
-  nameId = document.getElementById('js-nameId-text');
+ var nameId = document.getElementById('js-nameId-text');
 });
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
