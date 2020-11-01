@@ -143,7 +143,7 @@ navigator.mediaDevices
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      messages.textContent += nameId +`=== left ===\n`;
+      nameId.textContent += `=== left ===\n`;
     });
 
     // for closing myself
@@ -164,7 +164,7 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      messages.textContent += nameId +`: ${localText.value}\n`;
+      nameId.textContent += `: ${localText.value}\n`;
       localText.value = '';
     }
     
