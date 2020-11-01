@@ -59,9 +59,9 @@ toggleMicrophone.addEventListener('click', () => {
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
-/*toggleNameId.addEventListener('click', () => {
+toggleNameId.addEventListener('click', () => {
   var nameId = document.getElementById('js-nameId-text');
-});*/
+});
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
   const mediaStreamConstraints = {
@@ -165,7 +165,7 @@ navigator.mediaDevices
       room.send(localText.value);
 
       messages.textContent += `: ${localText.value}\n`;
-      localText.value = '';
+      localText.value = nameId+'';
     }
     
   });
