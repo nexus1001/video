@@ -59,9 +59,9 @@ toggleMicrophone.addEventListener('click', () => {
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
-toggleNameId.addEventListener('click', () => {
+/*toggleNameId.addEventListener('click', () => {
   var nameId = document.getElementById('js-nameId-text');
-});
+});*/
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
   const mediaStreamConstraints = {
@@ -115,7 +115,7 @@ navigator.mediaDevices
       messages.textContent += '=== You joined ===\n';
     });
     room.on('peerJoin', peerId => {
-      messages.textContent += nameId +`=== joined ===\n`;
+      messages.textContent += `=== joined ===\n`;
     });
 
     // Render remote stream for new peer join in the room
@@ -143,7 +143,7 @@ navigator.mediaDevices
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      nameId.textContent += `=== left ===\n`;
+      messages.textContent += `=== left ===\n`;
     });
 
     // for closing myself
@@ -164,7 +164,7 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      nameId.textContent += `: ${localText.value}\n`;
+      messages.textContent += `: ${localText.value}\n`;
       localText.value = '';
     }
     
