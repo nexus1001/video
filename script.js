@@ -165,7 +165,7 @@ navigator.mediaDevices
       room.send(localText.value);
 
       messages.textContent += `${nameId}: ${localText.value}\n`;
-      localText.value ='';
+      localText.value ='${nameId}';
     }
     
   });
