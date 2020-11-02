@@ -131,7 +131,7 @@ navigator.mediaDevices
 
     room.on('data', ({ data, src }) => {
       // Show a message sent to the room and who sent
-      messages.textContent += `${nameId}: ${data}\n`;
+      messages.textContent += `${peerId}: ${data}\n`;
     });
 
     // for closing room members
@@ -164,7 +164,7 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
 
-      messages.textContent += `${nameId}: ${localText.value}\n`;
+      messages.textContent += `${peerId}: ${localText.value}\n`;
       localText.value = '';
     }
     
