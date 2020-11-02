@@ -131,7 +131,7 @@ navigator.mediaDevices
 
     room.on('data',({ data, src }) => {
       // Show a message sent to the room and who sent
-      messages.textContent += `${nameId}: ${data}\n`;
+      messages.textContent += `${nameId+data}\n`;
     });
 
     // for closing room members
