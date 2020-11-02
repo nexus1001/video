@@ -131,7 +131,7 @@ navigator.mediaDevices
 
     room.on('data',({ data, src }) => {
       // Show a message sent to the room and who sent
-      messages.textContent +=`${data}\n`;
+      messages.textContent +=`:${data}\n`;
     });
 
     // for closing room members
@@ -163,9 +163,10 @@ navigator.mediaDevices
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
-
-      messages.textContent += `${nameId}: ${localText.value}\n`;
-      localText.value ='';
+      messages.textContent +=localText.value;
+      //messages.textContent += `${nameId}${localText.value}\n`;
+      localText.value =`${nameId}${localText.value}\n`;
+      //localText.value ='';
     }
     
   });
