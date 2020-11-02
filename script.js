@@ -129,7 +129,7 @@ navigator.mediaDevices
       await newVideo.play().catch(console.error);
     });
 
-    room.on('data', ({ data, src }) => {
+    room.on('data','nameId' ({ data, nameId }) => {
       // Show a message sent to the room and who sent
       messages.textContent += `${nameId}: ${data}\n`;
     });
