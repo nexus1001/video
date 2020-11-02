@@ -60,7 +60,7 @@ toggleMicrophone.addEventListener('click', () => {
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
 toggleNameId.addEventListener('click', () => {
- nameId = document.getElementById('js-nameId-text');
+ nameId = document.getElementById('js-nameId-text').value;
 });
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
@@ -165,7 +165,7 @@ navigator.mediaDevices
       room.send(localText.value);
 
       messages.textContent += `${peer.Id}: ${localText.value}\n`;
-      localText.value = '';
+      localText.value = nameId +'';
     }
     
   });
