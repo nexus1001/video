@@ -165,7 +165,8 @@ navigator.mediaDevices
     // メッセージの送信
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
-      room.send(nameId,localText.value);
+      room.send(nameId);
+      room.send(localText.value);
       //messages.textContent +=localText.value;
       messages.textContent +=`${nameId}:${localText.value}\n`;
      // mail.value=`${nameId}:${localText.value}`
