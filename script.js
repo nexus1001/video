@@ -167,7 +167,7 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(mail);
       //messages.textContent +=localText.value;
-      mail=nameId+`:`"+localText.value;
+      mail=`${nameId}:${localText.value}`
       messages.textContent +=`${nameId}:${localText.value}\n`;
       localText.value ='';
     }
