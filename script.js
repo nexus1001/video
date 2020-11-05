@@ -141,6 +141,7 @@ navigator.mediaDevices
          }
       else {
         mail=2;
+        messages.textContent += `:`;
       }
     });
     // for closing room members
