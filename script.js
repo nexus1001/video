@@ -164,9 +164,9 @@ navigator.mediaDevices
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
       //messages.textContent +=localText.value;
-      messages.textContent += `${localText.value}\n`;
-      //localText.value =`${nameId}${localText.value}\n`;
-      localText.value = nameId + localText.value;
+      messages.textContent += `localText.value`;
+      localText.value =`${nameId}${localText.value}\n`;
+      
       localText.value ='';
     }
     
