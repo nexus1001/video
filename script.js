@@ -132,9 +132,9 @@ navigator.mediaDevices
       await newVideo.play().catch(console.error);
     });
 
-    room.on('data','data1',({ data, data1 }) => {
+    room.on('data',({ data, src }) => {
       // Show a message sent to the room and who sent
-      messages.textContent +=`${data}:${data1}\n`;
+      messages.textContent +=`${data}\n`;
     });
 
     // for closing room members
