@@ -48,21 +48,23 @@ const Peer = window.Peer;
     //  video: false,
     })
     .catch(console.error);
-  // カメラオフ・音声のミュート
+  // カメラオフ
   toggleCamera.addEventListener('click', () => {
   const videoTracks = localStream.getVideoTracks()[0];
   videoTracks.enabled = !videoTracks.enabled;
   cameraStatus.textContent = `カメラ${videoTracks.enabled ? 'ON' : 'OFF'}`;
 });
- 
+ // 音声のミュート
 toggleMicrophone.addEventListener('click', () => {
   const audioTracks = localStream.getAudioTracks()[0];
   audioTracks.enabled = !audioTracks.enabled;
   microphoneStatus.textContent = `マイク${audioTracks.enabled ? 'ON' : 'OFF'}`;
 });
+  // 名前入力
 toggleNameId.addEventListener('click', () => {
  nameId = document.getElementById('js-nameId-text').value;
 });
+  // 画面共有
 toggleMediaStream.addEventListener('click', () => {
   //"user strict";
   const mediaStreamConstraints = {
@@ -160,7 +162,7 @@ navigator.mediaDevices
 
     sendTrigger.addEventListener('click', onClickSend);
     leaveTrigger.addEventListener('click', () => room.close(), { once: true });
-
+    // メッセージの送信
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
       room.send(mail);
