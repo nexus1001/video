@@ -63,6 +63,7 @@ toggleMicrophone.addEventListener('click', () => {
   // 名前入力
 toggleNameId.addEventListener('click', () => {
  nameId = document.getElementById('js-nameId-text').value;
+ mail = document.getElementById('js-nameId-text').value;
 });
   // 画面共有
 toggleMediaStream.addEventListener('click', () => {
