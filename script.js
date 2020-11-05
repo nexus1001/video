@@ -117,8 +117,8 @@ navigator.mediaDevices
     room.once('open', () => {
       messages.textContent += '=== You joined ===\n';
     });
-    room.on('peerJoin', peerId => {
-      messages.textContent += `===　${peerId} joined ===\n`;
+    room.on('peerJoin', nameId => {
+      messages.textContent += `===　${nameId} joined ===\n`;
     });
 
     // Render remote stream for new peer join in the room
@@ -145,15 +145,15 @@ navigator.mediaDevices
       }
     });
     // for closing room members
-    room.on('peerLeave', peerId => {
+    room.on('peerLeave', nameId => {
       const remoteVideo = remoteVideos.querySelector(
-        `[data-peer-id=${peerId}]`
+        `[data-peer-id=${nameId}]`
       );
       remoteVideo.srcObject.getTracks().forEach(track => track.stop());
       remoteVideo.srcObject = null;
       remoteVideo.remove();
 
-      messages.textContent += `=== ${peerId} left ===\n`;
+      messages.textContent += `=== ${nameId} left ===\n`;
     });
 
     // for closing myself
