@@ -163,8 +163,9 @@ navigator.mediaDevices
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
       room.send(localText.value);
+      room.send(nameId.value);
       //messages.textContent +=localText.value;
-      messages.textContent +=`${localText.value}\n`;
+      messages.textContent +=`${nameId}${localText.value}\n`;
       localText.value ='';
     }
     
