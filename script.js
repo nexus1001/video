@@ -166,7 +166,7 @@ navigator.mediaDevices
       //messages.textContent +=localText.value;
       messages.textContent += `${localText.value}\n`;
       //localText.value =`${nameId}${localText.value}\n`;
-      localText = nameId + localText.value;
+      localText.value = nameId + localText.value;
       localText.value ='';
     }
     
