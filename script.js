@@ -21,7 +21,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   var nameId;
-  var mail = document.getElementById('js-mailId-text').value;
+  var mail = 1;
  // var media = ;
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -135,7 +135,13 @@ navigator.mediaDevices
     room.on('data',({ data, src }) => {
       // Show a message sent to the room and who sent
       messages.textContent +=`${data}`;
-      messages.textContent += `\n`;
+      if(mail==2){
+        messages.textContent += `\n`;
+        mail=1;
+         }
+      else {
+        mail=2;
+      }
     });
     // for closing room members
     room.on('peerLeave', peerId => {
