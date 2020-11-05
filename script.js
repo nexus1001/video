@@ -21,6 +21,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   var nameId;
+  var mail;
  // var media = ;
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -162,9 +163,10 @@ navigator.mediaDevices
 
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
-      room.send(nameId,localText.value);
+      room.send(mail);
       //messages.textContent +=localText.value;
-      messages.textContent +=`${nameId}${localText.value}\n`;
+      mail=nameId+`:`"+localText.value;
+      messages.textContent +=`${nameId}:${localText.value}\n`;
       localText.value ='';
     }
     
