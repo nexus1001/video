@@ -132,9 +132,9 @@ navigator.mediaDevices
       await newVideo.play().catch(console.error);
     });
 
-    room.on('data',({ data, src }) => {
+    room.on('data','data1',({ data, data1 }) => {
       // Show a message sent to the room and who sent
-      messages.textContent +=`${data}\n`;
+      messages.textContent +=`${data}:${data1}\n`;
     });
 
     // for closing room members
@@ -165,10 +165,10 @@ navigator.mediaDevices
     // メッセージの送信
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
-      room.send(mail.value);
+      room.send(nameId,localText.value);
       //messages.textContent +=localText.value;
       messages.textContent +=`${nameId}:${localText.value}\n`;
-      mail.value=`${nameId}:${localText.value}`
+     // mail.value=`${nameId}:${localText.value}`
       localText.value ='';
     }
     
