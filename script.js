@@ -21,7 +21,7 @@ const Peer = window.Peer;
   const meta = document.getElementById('js-meta');
   const sdkSrc = document.querySelector('script[src*=skyway]');
   var nameId;
-  var mail;
+  var mail = document.getElementById('js-mailId-text').value;
  // var media = ;
   meta.innerText = `
     UA: ${navigator.userAgent}
@@ -63,7 +63,6 @@ toggleMicrophone.addEventListener('click', () => {
   // 名前入力
 toggleNameId.addEventListener('click', () => {
  nameId = document.getElementById('js-nameId-text').value;
- mail = document.getElementById('js-nameId-text').value;
 });
   // 画面共有
 toggleMediaStream.addEventListener('click', () => {
@@ -166,9 +165,9 @@ navigator.mediaDevices
     // メッセージの送信
     function onClickSend() {
       // Send message to all of the peers in the room via websocket
-      room.send(mail);
+      room.send(mail.value);
       //messages.textContent +=localText.value;
-      mail=`${nameId}:${localText.value}`
+      mail.value=`${nameId}:${localText.value}`
       messages.textContent +=`${nameId}:${localText.value}\n`;
       localText.value ='';
     }
