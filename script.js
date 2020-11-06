@@ -66,13 +66,13 @@ toggleNameId.addEventListener('click', () => {
 });
   // 画面共有
 toggleMediaStream.addEventListener('click', () => {
-  "user strict";
+  //"user strict";
   const mediaStreamConstraints = {
   audio: true,
   video: true
 };
 
-localVideo = document.querySelector("js-local-stream");
+localVideo = document.querySelector("video");
 
 function gotLocalMediaStream(mediaStream) {
   localStream = mediaStream;
