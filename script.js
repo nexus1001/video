@@ -66,7 +66,7 @@ toggleNameId.addEventListener('click', () => {
 });
   // 画面共有
 toggleMediaStream.addEventListener('click', () => {
-  //"user strict";
+  "user strict";
   const mediaStreamConstraints = {
   audio: true,
   video: true
