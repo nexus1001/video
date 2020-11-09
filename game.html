@@ -3,18 +3,86 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
-    <title>機能選択</title>
-    <style>
+    <title>ゲーム選択画面</title>
+    
+　　<style type="text/css">
       body { background-color: khaki; 
              text-size: 40px;}
+      .button {
+      display      : inline-block;
+      box-shadow   : 1px 1px 2px #666666;  /* 影の設定 */
+      cursor       : pointer;              /* カーソル形状 */
+      transition   : .3s;                  /* なめらか変化 */
+      }
+      .button:hover {
+      box-shadow   : none;                 /* 影の設定 */
+      transform    : scale(1.1,1.1);       /* 拡大 */
+      }
+      
+      .goClick() {
+        text-align: center;
+      }
+    
     </style>
   </head>
   <body>
+    <!--  
     <a href="https://nexus1001.github.io/video/oekaki.html">お絵かき</a>
-    <a href="https://nexus1001.github.io/video1/roulette.html">ルーレット</a>
+    <a href="">ワードウルフ</a>
+    <a href="https://nexus1001.github.io/video1/roulette">ルーレット</a>
     <a href="https://nexus1001.github.io/video/memo.html">メモ</a>
+
+    <div style="margin-left:40%;margin-right:10%;">
+    <input type="button" id="button1"onclick="location.href='https://nexus1001.github.io/video/oekaki.html'"style="width:40%;padding:10px;font-size:30px;" value="お絵描き"/>
+    </div>
+    <br><br><br>
+    <div style="margin-left:40%;margin-right:10%;">
+    <input type="button" id="button3" onclick="location.href='title.html'"style="width:40%;padding:10px;font-size:30px;" value="ワードウルフ"/>
+    </div>
+    <br><br><br>
+    <div style="margin-left:40%;margin-right:10%;">
+    <input type="button" id="button3" onclick="location.href='https://nexus1001.github.io/video1/roulette'"style="width:40%;padding:10px;font-size:30px;" value="ルーレット"/> 
+　　</div>
+　　<br><br><br>
+    <div style="margin-left:40%;margin-right:10%;">
+    <input type="button" id="button3" onclick="location.href='https://nexus1001.github.io/video/memo.html'"style="width:40%;padding:10px;font-size:30px;" value="メモ"/>
+    </div>-->
+
+
+
+    <center><img src="oekaki.png" class="button"  onclick="goClick()" width="350" height="100" alt="お絵描き">
     <script>
-      document.write('Goodbye!');
-    </script>
+    function goClick() {
+    // クリック時の動作を指定できます
+    location.href = "https://nexus1001.github.io/video/oekaki.html";
+    }
+    </script></center>
+    <br><br>
+
+　　<center><img src="ruletto.png" class="button"  onclick="goClick1()" width="350" height="100" alt="ルーレット">
+    <script>
+    function goClick1() {
+    // クリック時の動作を指定できます
+    location.href = "https://nexus1001.github.io/video1/roulette";
+    }
+    </script></center>
+    <br><br>
+
+    <center><img src="memo3.png" class="button"  onclick="goClick2()" width="350" height="100" alt="お絵描き">    
+　　<script>
+    function goClick2() {
+    // クリック時の動作を指定できます
+    location.href = "https://nexus1001.github.io/video/memo.html";
+    }
+    </script></center>
+    <br><br>
+
+    <center><img src="wordwolf.png" class="button" onclick="goClick3()" width="350" height="100" alt="ワードウルフ">    
+　　<script>
+    function goClick3() {
+    // クリック時の動作を指定できます
+    location.href = "https://nexus1001.github.io/video1/roulette";
+    }
+    </script></center>
   </body>
 </html>
