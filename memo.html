@@ -92,6 +92,7 @@ var jsalarm={
 </script>
     </head>
     <body>
+    <body bgcolor="#e7e7e7">
         <h1>書いたものを保存できるメモです。</h1>
         <form name="form1">
             <textarea name="Memo"></textarea>
@@ -141,16 +142,19 @@ tabdropdown.init("bluemenu")
 <p align="left"><!--webbot bot="HTMLMarkup" startspan --><form action="" method="post">
 <div id="jsalarmclock">
 <div><div class="leftcolumn">現在時間:</div> <span id="jsalarm_ct" style="letter-spacing: 2px"></span></div>
-<div hidden><div class="leftcolumn">アラーム設定:</div> <span><select></select> 時</span> <span><select></select> 分</span> <span><select></select> 秒</span></div>
-<div hidden><input type="text" id="musicloc" size="55" value="" /></div>
-<div hidden><input type="submit" value="アラームを設定" id="submitbutton" /> <input type="submit" value="リセット" id="resetbutton" /></div>
+<div><div class="leftcolumn">アラーム設定:</div> <span><select></select> 時</span> <span><select></select> 分</span> <span><select></select> 秒</span></div>
+<div><input type="text" id="musicloc" size="55" value="" /></div>
+<input type="submit" value="アラームを設定" id="submitbutton" /> <input type="submit" value="リセット" id="resetbutton" />
 </div>
 </form>
-<button onclick="location.href='https://nexus1001.github.io/video/game.html'"><img src=".png" alt="戻る" /></button>
+<form action="https://nexus1001.github.io/video/game">
+<input type="image" src="back3.PNG" alt="戻る">
+</form>
+
+
 <script type="text/javascript">
 
 jsalarm.init()
 
 </script><!--webbot bot="HTMLMarkup" endspan i-checksum="5681" --></p>
         </body>
-</html>
