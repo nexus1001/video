@@ -1,0 +1,73 @@
+
+<html><head>
+  <script language="JavaScript">
+  <!--//Copyright (C) WEST MiRa http://www.west-mira.jp
+
+  iro=new Array("ruri","bengara","tetu","hanada","kintya","toki","tori","sakura","susu","rindou","kariyasu","moegi");
+  color_pic=new Array();
+  for(i=0;i<12;i++)
+    {color_pic[i]=new Image();
+     color_pic[i].src=""+iro[i]+".png";}
+  color_pic[12]=new Image();
+  color_pic[12].src="maru.png";
+
+  color_name=new Array("瑠璃(るり)","弁柄(べんがら)","鉄(てつ)","縹(はなだ)","金茶(きんちゃ)","鴇(とき)","鳥羽(からすば)","桜(さくら)","煤(すす)","竜胆(りんどう)","苅安(かりやす)","萌黄(もえぎ)");
+
+    function img_load()
+	{
+	for(i=0; i<color_pic.length; i++)document.images["hidden"].src=color_pic[i].src;
+	document.images["hidden"].src=color_pic[12].src;
+	}
+
+  function hajime()
+    {document.form1.text1.value="";
+     for(i=0;i<12;i++)document.images[i].src=color_pic[i].src;
+     ran=Math.floor(Math.random()*100);
+     while( ran > 11 )ran=Math.floor(Math.random()*100);
+     document.form1.text1.value=color_name[ran]+"色って、どの色？";}
+
+  function colors(kazu)
+     {if(ran == kazu)
+		{document.form1.text1.value=color_name[ran]+"色は、この色。大正解！";
+		 for(i=0; i<12; i++)if(i!=kazu)document.images[i].src=color_pic[12].src;}
+       else alert("はずれ・・・");
+     }
+
+  //-->
+  </script>
+
+</head>
+<body onLoad="img_load();">
+
+<table align="center" bgcolor="#F2E2CB" cellpadding=7 border=1>
+<tr><td align="center">
+<form name="form1">
+<input type=text size=50 name=text1>
+
+<br><br>
+
+<a href="javaScript:colors(0);"><img src="ruri.png" name="0" border="0"></a>
+<a href="javaScript:colors(1);"><img src="bengara.png" name="1" border="0"></a>
+<a href="javaScript:colors(2);"><img src="tetu.png" name="2" border="0"></a>
+<a href="javaScript:colors(3);"><img src="hanada.png" name="3" border="0"></a>
+<a href="javaScript:colors(4);"><img src="kintya.png" name="4" border="0"></a>
+<a href="javaScript:colors(5);"><img src="toki.png" name="5" border="0"></a><br>
+<a href="javaScript:colors(6);"><img src="tori.png" name="6" border="0"></a>
+<a href="javaScript:colors(7);"><img src="sakura.png" name="7" border="0"></a>
+<a href="javaScript:colors(8);"><img src="susu.png" name="8" border="0"></a>
+<a href="javaScript:colors(9);"><img src="rindou.png" name="9" border="0"></a>
+<a href="javaScript:colors(10);"><img src="kariyasu.png" name="10" border="0"></a>
+<a href="javaScript:colors(11);"><img src="moegi.png" name="11" border="0"></a>
+
+<hr width="55%">
+
+  <input type="button" value="はじめる！" onClick="hajime();">
+  <input type="button" value="やりなおし" onClick="hajime();">
+<img src="" name="hidden" width="1" height="1" border="0">
+</form>
+</td></tr></table>
+<form action="\\file-svr\学生用\提出用\卒業研究2020\R4\Nexus\game" method="post">
+<input type="image" src="back3.png" alt="戻る">
+</form>
+</body>
+</html>
