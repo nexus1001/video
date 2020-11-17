@@ -70,7 +70,7 @@ toggleMediaStream.addEventListener('click', () => {
   const mediaStreamConstraints = {
   audio: true,
   video: {
-        width: 600,
+        width: 800,
         height: 600
       }
 };
