@@ -69,7 +69,10 @@ toggleMediaStream.addEventListener('click', () => {
   //"user strict";
   const mediaStreamConstraints = {
   audio: true,
-  video: true
+  video: {
+        width: 600,
+        height: 600
+      }
 };
 
 localVideo = document.querySelector("js-local-stream");
