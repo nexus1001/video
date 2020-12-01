@@ -42,8 +42,8 @@ const Peer = window.Peer;
       audio: true,
    //   audio: false,
       video: {
-        width: "10%",
-        height: "8%"
+        width: 180,
+        height: 160
       }
     //  video: false,
     })
@@ -70,8 +70,8 @@ toggleMediaStream.addEventListener('click', () => {
   const mediaStreamConstraints = {
   audio: true,
   video: {
-        width: "50%",
-        height: "40%"
+        width: 600,
+        height: 450
       }
 };
 
