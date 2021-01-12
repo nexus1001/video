@@ -16,8 +16,71 @@
 document.write( '<img src="110.jpg">' );
 </script>
 
+<h2> タイマー　</h2>
+<form name="ktimer" onSubmit="return false;">
+<input type="text" name="counter" size="10">
+<input type="button" name="b_start" size="10" value="スタート" onClick="count_start()">
+<input type="button" name="b_reset" size="10" value="リセット" onClick="count_stop()">
+<input type="button" size="10" value="5分" onClick="set_timer(300)">
+<input type="button" size="10" value="10分" onClick="set_timer(600)">
+<input type="button" size="10" value="15分" onClick="set_timer(900)">
+<input type="button" size="10" value="20分" onClick="set_timer(1200)">
+</form>
+
+<script type="text/javascript">
+def_count = 60;
+document.ktimer.counter.value = def_count;
+
+function count_start() {
+	//カウント開始
+	count = document.ktimer.counter.value;
+	document.ktimer.b_start.disabled = true;
+	timerID = setInterval('countdown()',1000);
+}
+
+function countdown() {
+	//カウント表示
+	count--;
+	document.ktimer.counter.value = count;	
+	if (count <= 0) {
+		alert('時間になりました');
+		count_stop();
+	}
+}
+function count_format(num) {
+	//カウント表示の書式設定
+	var tm,ts;
+	tm = Math.floor(num / 60); //分
+	ts = num % 60; //秒
+	if (ts < 10) ts = "0" + ts;
+	return tm + ":" + ts;
+}
+
+timer_reset();
+
+function timer_reset() {
+	//タイマーの初期化
+	timerID = 0;
+	document.ktimer.counter.value = def_count;
+	document.ktimer.b_start.disabled = false;
+}
+function set_timer(num) {
+	//規定時間の設定
+	if (timerID > 0) {
+		count_stop();
+	}
+	document.ktimer.counter.value = num;
+	count_start();
+}
+function count_stop() {
+	//カウント停止
+	clearInterval(timerID);
+	timer_reset();
+}
+</script>
+
 <form action="https://nexus1001.github.io/video/seikaku8_a.html">
-<input type="image" src="kekka.PNG" alt="結果を見る">
+<input type="image" src="kekka.png" alt="結果を見る">
 </form>
 <form action="https://nexus1001.github.io/video/category_umigame.html">
 <input type="image" src="https://nexus1001.github.io/video/back3.PNG" alt="一つ戻る">
